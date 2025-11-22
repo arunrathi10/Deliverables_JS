@@ -1,20 +1,22 @@
 var express = require("express");
 var router = express.Router();
 const OpenAI = require("openai");
+const AuthenticationMiddleware = require('../middleware/auth');
+
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
 /* GET: Ask & Compare page */
-router.get("/ask", function (req, res) {
+router.get("/ask", AuthenticationMiddleware, function (req, res) {
   res.render("compare/ask", {
     title: "AI Email & Compare - Ask & Compare",
   });
 });
 
 /* POST: handle question and get 3 AI-style answers */
-router.post("/ask", async function (req, res) {
+router.post("/ask", AuthenticationMiddleware, async function (req, res) {
   try {
     const question = req.body.question || "";
 

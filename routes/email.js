@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const OpenAI = require('openai');
+const AuthenticationMiddleware = require('../middleware/auth');
+
 
 // Create OpenAI client using key from .env
 const openai = new OpenAI({
@@ -8,12 +10,12 @@ const openai = new OpenAI({
 });
 
 /* GET email page. */
-router.get('/write', function(req, res, next) {
+router.get('/write', AuthenticationMiddleware, function(req, res, next) {
   res.render('email/write', { title: 'AI Email & Compare - Email' });
 });
 
 /* POST: rewriting email with AI */
-router.post('/write', async function(req, res) {
+router.post('/write', AuthenticationMiddleware, async function(req, res) {
   try {
     const originalEmail = req.body.originalEmail || '';
     const tone = req.body.tone || 'polite';
