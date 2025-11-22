@@ -27,14 +27,14 @@ router.post('/write', async function(req, res) {
     }
 
     const systemMessage =
-      'You are an assistant that rewrites emails from students to college professors or boss of company. ' +
+      'You are an assistant that rewrites emails from students to college professors or boss of company or to someone else. ' +
       'Keep the meaning, remove any rudeness, fix grammar, and make it clear and respectful. ' +
       'Do NOT invent new details.';
 
     const userMessage = `
 Tone to use: ${tone}
 
-Rewrite the following email so it is appropriate to send to a college professor or boss of a company:
+Rewrite the following email so it is appropriate to send to a college professor or boss of a company or to someone else:
 
 """${originalEmail}"""
 `;

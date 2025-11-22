@@ -3,8 +3,8 @@
   <header class="email-write-header">
     <h1 class="page-title text-gold mb-1">Welcome</h1>
     <p class="page-subtitle">
-      Paste your rough email below and choose how you want it to sound.
-      The AI will turn it into a polite, professor-friendly message.
+      Paste your rough email below and choose how you want it to sound. The AI
+      will turn it into a polite, professor-friendly message.
     </p>
   </header>
 
@@ -40,18 +40,22 @@
               <option value="assertive">Assertive</option>
             </select>
           </div>
-          <br>
+          <br />
 
           <div class="submit-group">
             <button type="submit" class="btn btn-gold">
               Fix email
             </button>
+
+            <a href="/email/write" class="btn btn-outline-gold">
+              Clear
+            </a>
           </div>
         </div>
       </form>
     </div>
   </div>
-  <br>
+  <br />
 
   <!-- AI RESPONSE SECTION -->
   <section class="email-result-section">
@@ -65,7 +69,8 @@
           <pre class="email-result-text">{{rewrittenEmail}}</pre>
         {{else}}
           <p class="email-result-placeholder">
-            After you submit your email, the AI’s improved version will appear here.
+            After you submit your email, the AI’s improved version will appear
+            here.
           </p>
         {{/if}}
       </div>
