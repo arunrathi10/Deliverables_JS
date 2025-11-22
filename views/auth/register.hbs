@@ -1,0 +1,49 @@
+<section class="auth-page">
+  <div class="auth-card card card-dark">
+    <div class="card-body">
+      <h1 class="h4 text-gold mb-3 text-center">Create an account</h1>
+      <p class="small text-center mb-4">
+        Sign up to use the email rewriter and Ask &amp; Compare tools.
+      </p>
+
+      {{#if errorMessage}}
+        <p class="small text-danger text-center mb-2">{{errorMessage}}</p>
+      {{/if}}
+
+      <form method="POST" action="/auth/register">
+        <div class="mb-3">
+          <label for="username" class="form-label text-gold">Username / Email</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="form-control bg-black text-white border-gold"
+            placeholder="Choose a username or use your email"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label text-gold">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control bg-black text-white border-gold"
+            placeholder="Create a strong password"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-gold w-100 mb-3">
+          Register
+        </button>
+
+        <p class="small text-center mb-0">
+          Already have an account?
+          <a href="/auth/login" class="text-gold">Login here</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>

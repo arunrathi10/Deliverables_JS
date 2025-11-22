@@ -1,0 +1,49 @@
+<section class="auth-page">
+  <div class="auth-card card card-dark">
+    <div class="card-body">
+      <h1 class="h4 text-gold mb-3 text-center">Login</h1>
+      <p class="small text-center mb-4">
+        Log in to write polite emails and compare AI answers.
+      </p>
+
+      {{#if errorMessage}}
+        <p class="small text-danger text-center mb-2">{{errorMessage}}</p>
+      {{/if}}
+
+      <form method="POST" action="/auth/login">
+        <div class="mb-3">
+          <label for="username" class="form-label text-gold">Username / Email</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="form-control bg-black text-white border-gold"
+            placeholder="Enter your username or email"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label text-gold">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control bg-black text-white border-gold"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-gold w-100 mb-3">
+          Login
+        </button>
+
+        <p class="small text-center mb-0">
+          Don't have an account?
+          <a href="/auth/register" class="text-gold">Register here</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
