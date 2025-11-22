@@ -215,3 +215,62 @@ a {
     text-align: center;
   }
 }
+
+.compare-ask-page {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.compare-ask-header {
+  margin-bottom: 1.5rem;
+}
+
+.question-form-card {
+  margin-bottom: 2rem;
+}
+
+.question-textarea {
+  min-height: 140px;
+  resize: vertical;
+  border-radius: 10px;
+  border: 1px solid #333;
+}
+
+.compare-form-actions .btn {
+  min-width: 130px;
+}
+
+.answers-section {
+  margin-top: 1rem;
+}
+
+.answer-card {
+  min-height: 180px;
+}
+
+.answer-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #d4af37;
+  margin-bottom: 0.75rem;
+}
+
+.answer-text {
+  white-space: pre-wrap;
+  color: #ffffff;
+}
+
+.answer-placeholder {
+  color: #d0d0d0;
+  font-style: italic;
+}
+
+@media (max-width: 576px) {
+  .compare-form-actions {
+    flex-direction: column;
+  }
+
+  .compare-form-actions .btn {
+    width: 100%;
+  }
+}

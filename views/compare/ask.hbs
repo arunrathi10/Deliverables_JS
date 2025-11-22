@@ -1,0 +1,98 @@
+<section class="compare-ask-page">
+  <header class="compare-ask-header">
+    <h1 class="page-title text-gold mb-1">Ask &amp; Compare</h1>
+    <p class="page-subtitle">
+      Ask one question and compare how three different AI assistants might respond:
+      ChatGPT, Claude, and Gemini. Use this to better understand concepts, assignments,
+      or tricky topics.
+    </p>
+  </header>
+
+  <!-- QUESTION FORM -->
+  <div class="card card-dark question-form-card">
+    <div class="card-body">
+      <form method="POST" action="/compare/ask">
+        <div class="mb-3">
+          <label for="question" class="form-label text-gold">
+            Your question
+          </label>
+          <textarea
+            id="question"
+            name="question"
+            class="form-control question-textarea bg-black text-white"
+            placeholder="Type your question here (e.g., 'Can you explain closures in JavaScript?')"
+          >{{question}}</textarea>
+        </div>
+
+        {{#if errorMessage}}
+          <p class="small text-danger mb-2">{{errorMessage}}</p>
+        {{/if}}
+
+        <div class="compare-form-actions d-flex gap-2">
+          <button type="submit" class="btn btn-gold">
+            Get answers
+          </button>
+
+          <a href="/compare/ask" class="btn btn-outline-gold">
+            Clear
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ANSWERS SECTION -->
+  <section class="answers-section">
+    <h2 class="h5 text-gold mb-3">AI answers</h2>
+
+    <div class="row g-3 answers-row">
+      <!-- ChatGPT -->
+      <div class="col-md-4">
+        <div class="card card-dark answer-card">
+          <div class="card-body">
+            <h3 class="answer-title">ChatGPT</h3>
+            {{#if chatgptAnswer}}
+              <p class="answer-text small">{{chatgptAnswer}}</p>
+            {{else}}
+              <p class="answer-placeholder small">
+                After you ask a question, this box will show ChatGPT’s explanation.
+              </p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+
+      <!-- Claude -->
+      <div class="col-md-4">
+        <div class="card card-dark answer-card">
+          <div class="card-body">
+            <h3 class="answer-title">Claude</h3>
+            {{#if claudeAnswer}}
+              <p class="answer-text small">{{claudeAnswer}}</p>
+            {{else}}
+              <p class="answer-placeholder small">
+                After you ask a question, this box will show a Claude-style explanation.
+              </p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+
+      <!-- Gemini -->
+      <div class="col-md-4">
+        <div class="card card-dark answer-card">
+          <div class="card-body">
+            <h3 class="answer-title">Gemini</h3>
+            {{#if geminiAnswer}}
+              <p class="answer-text small">{{geminiAnswer}}</p>
+            {{else}}
+              <p class="answer-placeholder small">
+                After you ask a question, this box will show a Gemini-style explanation.
+              </p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
