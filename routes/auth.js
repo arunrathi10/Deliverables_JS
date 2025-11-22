@@ -11,7 +11,32 @@ router.get('/register', function (req, res) {
 });
 
 /* POST : handle user registration */
+router.post('/register', function (req, res) {
+  const { username, password } = req.body;
 
+  if (!username || !password) {
+    return res.render('auth/register', {
+      title: 'Register - AI Email & Compare',
+      errorMessage: 'Please fill in all fields.',
+    });
+  }
+  // Using plm to register user
+  User.register(new User({ username }), password, function (err, user) {
+    if (err) {
+      console.error('Registration error:', err);
+
+      return res.render('auth/register', {
+        title: 'Register - AI Email & Compare',
+        errorMessage: err.message || 'Error creating account. Try again.',
+      });
+    }
+
+    // Auto login after successful registration
+    passport.authenticate('local')(req, res, function () {
+      res.redirect('/'); // or '/email/write' if you want
+    });
+  });
+});
 
 /* GET : Login page */
 router.get('/login', function (req, res) {
