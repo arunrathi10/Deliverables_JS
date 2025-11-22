@@ -1,0 +1,73 @@
+<section class="email-write-page">
+  <!-- Title -->
+  <header class="email-write-header">
+    <h1 class="page-title text-gold mb-1">Welcome</h1>
+    <p class="page-subtitle">
+      Paste your rough email below and choose how you want it to sound. The AI
+      will turn it into a polite, professor-friendly message.
+    </p>
+  </header>
+
+  <!-- FORM CARD -->
+  <div class="card card-dark email-form-card">
+    <div class="card-body">
+      <form method="POST" action="/email/write">
+        <!-- Email textarea -->
+        <div class="mb-3">
+          <label for="originalEmail" class="form-label text-gold">
+            Your email (as you would normally type it)
+          </label>
+          <textarea
+            id="originalEmail"
+            name="originalEmail"
+            class="form-control email-textarea bg-black text-white"
+            placeholder="Type or paste your email here..."
+          >{{originalEmail}}</textarea>
+        </div>
+
+        <!-- Tone dropdown -->
+        <div class="email-form-row">
+          <div class="tone-select-group">
+            <label for="tone" class="form-label text-gold">Choose tone</label>
+            <select
+              id="tone"
+              name="tone"
+              class="form-select email-tone-select bg-black text-white border-gold"
+            >
+              <option value="polite">Polite</option>
+              <option value="professional">Professional</option>
+              <option value="friendly">Friendly</option>
+              <option value="assertive">Assertive</option>
+            </select>
+
+          </div>
+          <br>
+
+          <div class="submit-group">
+            <button type="submit" class="btn btn-gold">
+              Rewrite email
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <br>
+
+  <!-- AI RESPONSE SECTION -->
+  <section class="email-result-section">
+    <h2 class="h5 text-gold mb-2">AI rewritten email</h2>
+
+    <div class="card card-dark email-result-card">
+      <div class="card-body small">
+        {{#if infoMessage}}
+          <p class="email-result-placeholder">{{infoMessage}}</p>
+        {{else}}
+          <p class="email-result-placeholder">
+            ............
+          </p>
+        {{/if}}
+      </div>
+    </div>
+  </section>
+</section>
