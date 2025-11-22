@@ -274,3 +274,14 @@ a {
     width: 100%;
   }
 }
+
+.auth-page {
+  max-width: 420px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.auth-card {
+  border-radius: 14px;
+  padding: 10px;
+}
