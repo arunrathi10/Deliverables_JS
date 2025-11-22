@@ -181,6 +181,12 @@ a {
   align-self: flex-start;
 }
 
+.email-result-text {
+  white-space: pre-wrap;
+  font-family: inherit;
+  color: #ffffff;
+}
+
 @media (min-width: 768px) {
   .compare-wrapper {
     flex-direction: row;
